@@ -65,6 +65,4 @@ For any questions or suggestions, you can contact me through my GitHub profile: 
 
 Made with ❤️ by [Pranjal Jain](https://github.com/4Pranjal)
 
-Feel free to explore and enhance this script to meet your specific requirements. If you encounter any issues or have suggestions, feel free to open an issue or contribute to the repository.
-
 Happy coding!
