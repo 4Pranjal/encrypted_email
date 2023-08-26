@@ -1,0 +1,32 @@
+This code demonstrates how to send and receive encrypted emails using the `rsa` library for encryption and the `smtplib` library for sending emails via SMTP (Simple Mail Transfer Protocol). The goal is to ensure that the email content remains confidential between the sender and the recipient.
+
+Here's an explanation of the code:
+
+1. **Import Required Libraries**: The code begins by importing the necessary libraries - `rsa` for encryption, `smtplib` for email sending, `MIMEText` for email content, and `base64` for encoding and decoding.
+
+2. **Generate RSA Key Pair**: A public-private key pair is generated using the `rsa.newkeys()` function. In this example, a 512-bit key length is used (64 bytes), which creates a public key and a private key.
+
+3. **Send Encrypted Email Function**: The `send_email` function is defined to send encrypted emails. The function takes the subject, message, sender's email address, recipient's email address, sender's password, and recipient's public key as input.
+
+   - The message is encrypted using the recipient's public key using the `rsa.encrypt()` function.
+   - The encrypted message is converted to a string using `base64` encoding.
+   - An email message is created using `MIMEText`, with the encrypted message as the content.
+   - The email is sent using an SMTP server, Gmail's in this case, with appropriate credentials and encryption (TLS) applied.
+
+4. **Decrypt Email Function**: The `decrypt_email` function is defined to decrypt the received email content. It takes the encrypted message string and the recipient's private key as input.
+
+   - The encrypted message string is decoded from `base64` encoding.
+   - The message is decrypted using the recipient's private key with `rsa.decrypt()`.
+   - The decrypted message is returned as a string.
+
+5. **Example Usage**: An example usage is provided using the generated key pair.
+
+   - The sender's public key is used as the recipient's public key (Note: In practice, public keys are securely exchanged beforehand).
+   - The `send_email` function is called to send an email with the subject, body, sender's email address, recipient's email address, sender's password, and recipient's public key.
+
+6. **Recipient's Side**: On the recipient's side, the encrypted message string is assumed to be received.
+
+   - The encrypted message string is provided as input to the `decrypt_email` function, along with the recipient's private key.
+   - The decrypted message is printed.
+
+This code demonstrates a basic example of encrypting and decrypting email messages using RSA encryption. However, please note that in real-world scenarios, a more secure exchange of public keys and a robust approach to key management are necessary to ensure the security of the communication.
