@@ -31,6 +31,8 @@ The script includes functions for sending and receiving encrypted emails:
    ```
 
 3. Observe the example usage of sending and receiving encrypted emails.
+You have to add your id and password of gmail, then try to execute it.
+There maybe extra setting which you have adjust from your gmail account like enabling 3rd party to access your account.
 
 ## Results
 
